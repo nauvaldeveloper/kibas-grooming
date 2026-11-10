@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kibas — Pet Grooming Bandung</title>
+  <meta name="description" content="Grooming anjing dan kucing di Bandung. Harga sesuai ukuran dan jenis bulu, pilih groomer dan jam, antar-jemput tersedia. Booking lewat WhatsApp." />
+  <meta name="theme-color" content="#1f7a6d" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%231f7a6d'/%3E%3Cpath d='M19 36c6 11 20 11 26 0' stroke='%23ffcf4a' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='24' cy='24' r='4' fill='%23fff'/%3E%3Ccircle cx='40' cy='24' r='4' fill='%23fff'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="demo-bar" id="demoBar" hidden>Website concept by Nauval Dev · usaha &amp; groomer fiktif · <a id="demoLink" target="_blank" rel="noopener">Hubungi</a></div>
+
+  <header class="nav">
+    <div class="wrap nav__in">
+      <a href="#top" class="brand" aria-label="Kibas, ke atas">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="12"/><path d="M12 22c4 7 12 7 16 0"/><circle cx="15" cy="15" r="2.6"/><circle cx="25" cy="15" r="2.6"/></svg>
+        <span>Kibas</span>
+      </a>
+      <nav class="nav__links" aria-label="Navigasi"><a href="#harga">Harga</a><a href="#proses">Proses</a><a href="#syarat">Syarat</a><a href="#faq">FAQ</a></nav>
+      <a href="#booking" class="btn btn--teal btn--sm">Booking</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero__in">
+        <div>
+          <p class="eyebrow">Pet grooming · Sukajadi, Bandung</p>
+          <h1>Pulang wangi, <span>bulu rapi,</span> tetap tenang.</h1>
+          <p class="lead">Mandi, potong bulu, kuku, dan telinga untuk anjing dan kucing. Harga langsung terlihat sesuai ukuran dan jenis bulunya, lalu pilih groomer dan jam yang kosong.</p>
+          <div class="hero__cta"><a href="#booking" class="btn btn--teal">Hitung &amp; booking</a><a href="#harga" class="btn btn--line">Lihat harga</a></div>
+          <ul class="facts">
+            <li><b>Foto before–after</b> dikirim ke WhatsApp-mu</li>
+            <li><b>Antar-jemput</b> se-Bandung Raya</li>
+            <li><b>Wajib vaksin</b> untuk keamanan semua hewan</li>
+          </ul>
+        </div>
+        <figure class="hero__img">
+          <img src="assets/img/hero-groom.webp" alt="Anjing berbulu putih sedang dirapikan di meja grooming" width="1024" height="683" fetchpriority="high" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- PRICE TABLE -->
+    <section class="sec" id="harga">
+      <div class="wrap">
+        <p class="eyebrow">Harga</p>
+        <h2>Harga dasar per ukuran</h2>
+        <p class="sub">Bulu panjang +15%, bulu keriting +20%. Kucing berbulu panjang +20%.</p>
+        <div class="table-wrap"><table class="ptable" id="ptable"></table></div>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section class="sec sec--soft" id="booking">
+      <div class="wrap">
+        <p class="eyebrow">Booking</p>
+        <h2>Atur grooming, lihat totalnya</h2>
+        <div class="bk">
+          <form class="bk__form" id="bkForm" novalidate>
+            <fieldset class="step">
+              <legend><b>1</b> Hewanmu</legend>
+              <div class="seg" id="species" role="radiogroup" aria-label="Jenis hewan"></div>
+              <div id="sizeWrap"><span class="lbl">Ukuran</span><div class="opts opts--4" id="sizes"></div></div>
+              <div><span class="lbl">Jenis bulu</span><div class="opts" id="coats"></div></div>
+              <label class="field">Nama hewan<input id="petName" maxlength="30" placeholder="Mis. Mochi" /></label>
+            </fieldset>
+
+            <fieldset class="step">
+              <legend><b>2</b> Paket &amp; tambahan</legend>
+              <div class="pkgs" id="pkgs"></div>
+              <div><span class="lbl">Tambahan</span><div class="addons" id="addons"></div></div>
+            </fieldset>
+
+            <fieldset class="step">
+              <legend><b>3</b> Groomer &amp; jadwal</legend>
+              <div class="seg" id="groomers" role="radiogroup" aria-label="Groomer"></div>
+              <div class="days" id="days"></div>
+              <p class="lbl" id="slotHint"></p>
+              <div class="slots" id="slots"></div>
+            </fieldset>
+
+            <fieldset class="step">
+              <legend><b>4</b> Antar-jemput</legend>
+              <div class="pickup" id="pickup"></div>
+              <label class="field" id="addrWrap" hidden>Alamat jemput<textarea id="addr" placeholder="Jalan, nomor, RT/RW, kecamatan, patokan"></textarea></label>
+            </fieldset>
+
+            <fieldset class="step">
+              <legend><b>5</b> Data pemilik</legend>
+              <div class="two">
+                <label class="field">Nama kamu<input id="owner" autocomplete="name" /></label>
+                <label class="field">No. WhatsApp<input id="wa" inputmode="tel" autocomplete="tel" placeholder="08xx" /></label>
+              </div>
+              <label class="field">Catatan kondisi (opsional)<textarea id="note" placeholder="Mis. takut hair dryer, alergi sampo tertentu, galak saat potong kuku"></textarea></label>
+              <label class="check"><input type="checkbox" id="vaksin" /> Hewanku sudah vaksin rabies / vaksin dasar dan sedang tidak sakit.</label>
+            </fieldset>
+          </form>
+
+          <aside class="sum" aria-live="polite">
+            <p class="eyebrow">Ringkasan</p>
+            <h3 id="sumTitle">—</h3>
+            <dl class="sum__lines" id="sumLines"></dl>
+            <div class="sum__total"><span>Total estimasi</span><b id="sumTotal">Rp0</b></div>
+            <p class="sum__dur" id="sumDur"></p>
+            <p class="err" id="err" hidden></p>
+            <button class="btn btn--teal btn--block" type="submit" form="bkForm" id="sendBtn">Kirim booking via WhatsApp</button>
+            <p class="fine">Harga final dikonfirmasi groomer setelah melihat kondisi bulu. Tidak ada biaya tambahan tanpa persetujuanmu.</p>
+            <div id="preview"></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="sec" id="proses">
+      <div class="wrap proc">
+        <div>
+          <p class="eyebrow">Proses</p>
+          <h2>Yang terjadi di meja grooming</h2>
+          <ol class="steps">
+            <li><b>Cek kondisi</b><span>Kulit, telinga, kuku, dan kutu diperiksa dulu. Temuan dikabari sebelum dikerjakan.</span></li>
+            <li><b>Mandi 2x</b><span>Sampo pertama mengangkat kotoran, sampo kedua sesuai jenis bulu.</span></li>
+            <li><b>Blow dry &amp; sisir</b><span>Dikeringkan sampai ke pangkal bulu agar tidak lembap dan berjamur.</span></li>
+            <li><b>Potong &amp; finishing</b><span>Bulu dirapikan sesuai gaya, kuku dan telinga dibersihkan, parfum ringan.</span></li>
+            <li><b>Foto before–after</b><span>Dikirim ke WhatsApp-mu saat hewan siap dijemput.</span></li>
+          </ol>
+        </div>
+        <div class="proc__imgs">
+          <img src="assets/img/proses-mandi.webp" alt="Anjing sedang dimandikan" width="1024" height="683" loading="lazy" />
+          <img src="assets/img/proses-sikat.webp" alt="Anjing basah sedang disikat" width="960" height="638" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- RULES -->
+    <section class="sec sec--soft" id="syarat">
+      <div class="wrap">
+        <p class="eyebrow">Syarat</p>
+        <h2>Supaya aman untuk semua hewan</h2>
+        <ul class="rules">
+          <li><b>Vaksin</b><span>Anjing wajib vaksin rabies, kucing vaksin dasar. Bawa buku vaksin atau kirim fotonya.</span></li>
+          <li><b>Sehat</b><span>Tidak sedang demam, diare, atau baru operasi dalam 2 minggu terakhir.</span></li>
+          <li><b>Makan</b><span>Beri makan paling lambat 2 jam sebelum grooming agar tidak mual.</span></li>
+          <li><b>Hewan betina</b><span>Kucing atau anjing yang sedang birahi tetap dilayani, mohon diinfokan di catatan.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="faq">
+      <div class="wrap faq">
+        <div><p class="eyebrow">FAQ</p><h2>Sering ditanyakan</h2></div>
+        <div id="faqList"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot"><div class="wrap foot__in"><b>Kibas</b><span id="footInfo"></span><span class="foot__credit">Foto: rawpixel (CC0) &amp; Matt Bango via StockSnap (CC0).</span></div></footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
